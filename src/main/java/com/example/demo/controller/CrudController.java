@@ -13,23 +13,27 @@ public class CrudController {
     CrudRepository crudRepository;
 
     @GetMapping("/employees")
-    public List<CrudModel> getEmployees(){
+    public List<CrudModel> getEmployees() {
         return crudRepository.getAllEmployees();
     }
+
     @GetMapping("/getEmployee/{empId}")
-    public CrudModel getEmployeeDetails(@PathVariable int empId){
+    public CrudModel getEmployeeDetails(@PathVariable int empId) {
         return crudRepository.getEmployeeDetails(empId);
     }
+
     @PostMapping("/newEmployee/{empId}")
-    public CrudModel addEmployeeDetails(@PathVariable int empId,@RequestBody CrudModel employee){
-        return crudRepository.addEmployee(empId,employee);
+    public CrudModel addEmployeeDetails(@PathVariable int empId, @RequestBody CrudModel employee) {
+        return crudRepository.addEmployee(empId, employee);
     }
-    @PutMapping("/updateEmployee/{EmpId}")
-    public CrudModel updateEmployeeDetails(@PathVariable int empId,@RequestBody CrudModel employee){
-        return crudRepository.updateEmployee(empId,employee);
+
+    @PutMapping("/updateEmployee/{employeeId}")
+    public CrudModel updateEmployeeDetails(@PathVariable Integer employeeId, @RequestBody CrudModel employee) {
+        return crudRepository.updateEmployee(employeeId, employee);
     }
+
     @DeleteMapping("/deleteEmployee/{empId}")
-    public CrudModel deleteEmployee(@PathVariable int empId){
+    public CrudModel deleteEmployee(@PathVariable int empId) {
         return crudRepository.deleteEmployeeDetails(empId);
     }
 }

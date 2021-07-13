@@ -1,16 +1,17 @@
 package com.example.demo.model;
 
 public class CrudModel {
-    private int empId;
+
+    private Integer empId;
     private String empName;
     private String empMobile;
     private double empSal;
 
-    public int getEmpId() {
+    public Integer getEmpId() {
         return empId;
     }
 
-    public void setEmpId(int empId) {
+    public void setEmpId(Integer empId) {
         this.empId = empId;
     }
 
@@ -38,7 +39,7 @@ public class CrudModel {
         this.empSal = empSal;
     }
 
-    public CrudModel(int empId, String empName, String empMobile, double empSal) {
+    public CrudModel(Integer empId, String empName, String empMobile, double empSal) {
         this.empId = empId;
         this.empName = empName;
         this.empMobile = empMobile;

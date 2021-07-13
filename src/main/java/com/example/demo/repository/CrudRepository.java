@@ -10,12 +10,13 @@ import java.util.Map;
 
 @Repository
 public class CrudRepository {
-    private Map<Integer, CrudModel> employees = new HashMap<>();
+    static private Map<Integer, CrudModel> employees = new HashMap<>();
+
     {
         CrudModel employee1 = new CrudModel(1, "Prashant", "9956823659", 50000);
         CrudModel employee2 = new CrudModel(2, "Billa", "9000256893", 25000);
-        employees.put(1, employee1);
-        employees.put(2, employee2);
+        employees.put(employee1.getEmpId(), employee1);
+        employees.put(employee2.getEmpId(), employee2);
     }
 
     public List<CrudModel> getAllEmployees() {
@@ -26,15 +27,14 @@ public class CrudRepository {
         return employees.get(empId);
     }
 
-    public CrudModel addEmployee(int empId, CrudModel employee) {
-        employee.setEmpId(empId);
-        employees.put(empId, employee);
+    public static CrudModel addEmployee(Integer employeeId, CrudModel employee) {
+        employee.setEmpId(employeeId);
+        employees.put(employee.getEmpId(), employee);
         return employee;
     }
 
     public CrudModel updateEmployee(int empId, CrudModel employee) {
-        employee.setEmpId(empId);
-        employees.put(empId, employee);
+        employees.put(employee.getEmpId(), employee);
         return employee;
     }
 
