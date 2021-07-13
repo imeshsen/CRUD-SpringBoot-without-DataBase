@@ -27,15 +27,21 @@ public class CrudRepository {
         return employees.get(empId);
     }
 
-    public static CrudModel addEmployee(Integer employeeId, CrudModel employee) {
-        employee.setEmpId(employeeId);
-        employees.put(employee.getEmpId(), employee);
-        return employee;
+    public static CrudModel addEmployee(int employeeId, CrudModel employee) {
+        if (!employees.containsKey(employeeId)) {
+            employee.setEmpId(employeeId);
+            employees.put(employee.getEmpId(), employee);
+            return employee;
+        }
+        return null;
     }
 
     public CrudModel updateEmployee(int empId, CrudModel employee) {
-        employees.put(employee.getEmpId(), employee);
-        return employee;
+        if (employees.containsKey(empId)) {
+            employees.put(employee.getEmpId(), employee);
+            return employee;
+        }
+        return null;
     }
 
     public CrudModel deleteEmployeeDetails(int empId) {

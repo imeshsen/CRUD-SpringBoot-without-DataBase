@@ -22,9 +22,9 @@ public class CrudController {
         return crudRepository.getEmployeeDetails(empId);
     }
 
-    @PostMapping("/newEmployee/{empId}")
-    public CrudModel addEmployeeDetails(@PathVariable int empId, @RequestBody CrudModel employee) {
-        return crudRepository.addEmployee(empId, employee);
+    @PostMapping("/newEmployee/{employeeId}")
+    public CrudModel addEmployeeDetails(@PathVariable Integer employeeId, @RequestBody CrudModel employee) {
+        return crudRepository.addEmployee(employeeId, employee);
     }
 
     @PutMapping("/updateEmployee/{employeeId}")
