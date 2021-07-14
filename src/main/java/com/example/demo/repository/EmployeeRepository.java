@@ -21,10 +21,12 @@ public class EmployeeRepository implements IEmployeeRepository {
         employees.put(employee3.getEmpId(), employee3);
     }
 
+    @Override
     public List<EmployeeModel> getAllEmployees() {
         return new ArrayList<>(employees.values());
     }
 
+    @Override
     public EmployeeModel getEmployeeDetails(Integer empId) {
         if (employees.containsKey(empId)) {
             return employees.get(empId);
@@ -33,6 +35,7 @@ public class EmployeeRepository implements IEmployeeRepository {
         }
     }
 
+    @Override
     public EmployeeModel addEmployee(EmployeeModel employee) {
         if (!employees.containsKey(employee.getEmpId())) {
             employees.put(employee.getEmpId(), employee);
@@ -42,6 +45,7 @@ public class EmployeeRepository implements IEmployeeRepository {
         }
     }
 
+    @Override
     public EmployeeModel updateEmployee(EmployeeModel employee) {
         if (employees.containsKey(employee.getEmpId())) {
             employees.put(employee.getEmpId(), employee);
@@ -51,6 +55,7 @@ public class EmployeeRepository implements IEmployeeRepository {
         }
     }
 
+    @Override
     public String deleteEmployeeDetails(Integer empId) {
         if (employees.containsKey(empId)) {
             employees.remove(empId);
