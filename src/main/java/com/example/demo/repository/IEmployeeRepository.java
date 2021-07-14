@@ -12,9 +12,9 @@ public interface IEmployeeRepository {
 
     EmployeeModel getEmployeeDetails(Integer empId);
 
-    EmployeeModel addEmployee(Integer employeeId, EmployeeModel employee);
+    EmployeeModel addEmployee(EmployeeModel employee);
 
-    EmployeeModel updateEmployee(Integer empId, EmployeeModel employee);
+    EmployeeModel updateEmployee(EmployeeModel employee);
 
     EmployeeModel deleteEmployeeDetails(Integer empId);
 

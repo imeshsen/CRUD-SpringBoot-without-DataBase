@@ -24,13 +24,13 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public EmployeeModel addEmployeeDetails(Integer employeeId, EmployeeModel employee) {
-        return iEmployeeRepository.addEmployee(employeeId, employee);
+    public EmployeeModel addEmployeeDetails(EmployeeModel employee) {
+        return iEmployeeRepository.addEmployee(employee);
     }
 
     @Override
-    public EmployeeModel updateEmployeeDetails(Integer employeeId, EmployeeModel employee) {
-        return iEmployeeRepository.updateEmployee(employeeId, employee);
+    public EmployeeModel updateEmployeeDetails(EmployeeModel employee) {
+        return iEmployeeRepository.updateEmployee(employee);
     }
 
     @Override

@@ -29,17 +29,16 @@ public class EmployeeRepository implements IEmployeeRepository {
         return employees.get(empId);
     }
 
-    public EmployeeModel addEmployee(Integer employeeId, EmployeeModel employee) {
-        if (!employees.containsKey(employeeId)) {
-            employee.setEmpId(employeeId);
+    public EmployeeModel addEmployee(EmployeeModel employee) {
+        if (!employees.containsKey(employee.getEmpId())) {
             employees.put(employee.getEmpId(), employee);
             return employee;
         }
         return null;
     }
 
-    public EmployeeModel updateEmployee(Integer empId, EmployeeModel employee) {
-        if (employees.containsKey(empId)) {
+    public EmployeeModel updateEmployee(EmployeeModel employee) {
+        if (employees.containsKey(employee.getEmpId())) {
             employees.put(employee.getEmpId(), employee);
             return employee;
         }

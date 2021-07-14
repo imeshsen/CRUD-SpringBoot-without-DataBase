@@ -23,14 +23,14 @@ public class CrudController {
         return iEmployeeService.getEmployeeDetails(empId);
     }
 
-    @PostMapping("/newEmployee/{employeeId}")
-    public EmployeeModel addEmployeeDetails(@PathVariable Integer employeeId, @RequestBody EmployeeModel employee) {
-        return iEmployeeService.addEmployeeDetails(employeeId, employee);
+    @PostMapping("/newEmployee")
+    public EmployeeModel addEmployeeDetails(@RequestBody EmployeeModel employee) {
+        return iEmployeeService.addEmployeeDetails(employee);
     }
 
-    @PutMapping("/updateEmployee/{employeeId}")
-    public EmployeeModel updateEmployeeDetails(@PathVariable Integer employeeId, @RequestBody EmployeeModel employee) {
-        return iEmployeeService.updateEmployeeDetails(employeeId, employee);
+    @PutMapping("/updateEmployee")
+    public EmployeeModel updateEmployeeDetails(@RequestBody EmployeeModel employee) {
+        return iEmployeeService.updateEmployeeDetails(employee);
     }
 
     @DeleteMapping("/deleteEmployee/{empId}")
