@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
-public class CrudModel {
-
+public class EmployeeModel {
     private Integer empId;
     private String empName;
     private String empMobile;
@@ -39,7 +38,7 @@ public class CrudModel {
         this.empSal = empSal;
     }
 
-    public CrudModel(Integer empId, String empName, String empMobile, double empSal) {
+    public EmployeeModel(Integer empId, String empName, String empMobile, double empSal) {
         this.empId = empId;
         this.empName = empName;
         this.empMobile = empMobile;
