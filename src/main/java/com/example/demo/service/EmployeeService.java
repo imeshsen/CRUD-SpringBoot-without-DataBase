@@ -34,7 +34,7 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public EmployeeModel deleteEmployee(Integer empId) {
+    public String deleteEmployee(Integer empId) {
         return iEmployeeRepository.deleteEmployeeDetails(empId);
     }
 }

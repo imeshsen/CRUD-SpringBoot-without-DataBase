@@ -26,26 +26,37 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     public EmployeeModel getEmployeeDetails(Integer empId) {
-        return employees.get(empId);
+        if (employees.containsKey(empId)) {
+            return employees.get(empId);
+        } else {
+            return null;
+        }
     }
 
     public EmployeeModel addEmployee(EmployeeModel employee) {
         if (!employees.containsKey(employee.getEmpId())) {
             employees.put(employee.getEmpId(), employee);
             return employee;
+        } else {
+            return null;
         }
-        return null;
     }
 
     public EmployeeModel updateEmployee(EmployeeModel employee) {
         if (employees.containsKey(employee.getEmpId())) {
             employees.put(employee.getEmpId(), employee);
             return employee;
+        } else {
+            return null;
         }
-        return null;
     }
 
-    public EmployeeModel deleteEmployeeDetails(Integer empId) {
-        return employees.remove(empId);
+    public String deleteEmployeeDetails(Integer empId) {
+        if (employees.containsKey(empId)) {
+            employees.remove(empId);
+            return "DELETED SUCCESSFULLY";
+        } else {
+            return null;
+        }
     }
 }

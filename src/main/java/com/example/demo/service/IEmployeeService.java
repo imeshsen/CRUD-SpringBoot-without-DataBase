@@ -16,6 +16,6 @@ public interface IEmployeeService {
 
     EmployeeModel updateEmployeeDetails(EmployeeModel employee);
 
-    EmployeeModel deleteEmployee(Integer empId);
+    String deleteEmployee(Integer empId);
 
 }
