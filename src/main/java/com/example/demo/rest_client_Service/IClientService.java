@@ -7,12 +7,12 @@ public interface IClientService {
 
     ResponseEntity<Object> getAll();
 
-    ResponseEntity<Object> getById(EmployeeModel employeeModel);
+    ResponseEntity<Object> getById(Integer empId);
 
     ResponseEntity<Object> addEmployee(EmployeeModel employeeModel);
 
     ResponseEntity<Object> updateEmployee(EmployeeModel employeeModel);
 
-    ResponseEntity<Object> deleteById(EmployeeModel employeeModel);
+    ResponseEntity<Object> deleteById(Integer empId);
 
 }

@@ -23,17 +23,24 @@ public class ClientService implements IClientService {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Object> entity = new HttpEntity<>(headers);
         ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.GET_ALL_EMPLOYEES_API, HttpMethod.GET, entity, Object.class);
-        AppResponse response = new AppResponse(HttpStatus.OK.value(), " RECORDS FETCHING SUCCESSFULLY... ",result);
+        AppResponse response = new AppResponse(HttpStatus.OK.value(), " TOTAL EMPLOYEES DETAILS ", result);
         return new ResponseEntity<>(response, HttpStatus.OK);
+
     }
 
-    public ResponseEntity<Object> getById(EmployeeModel employeeModel) {
+    public ResponseEntity<Object> getById(Integer empId) {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Object> entity = new HttpEntity<>(headers);
-        ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.GET_EMPLOYEE_BY_ID, HttpMethod.GET, entity, Object.class);
-        AppResponse response = new AppResponse(HttpStatus.OK.value(), "Employee Details..",result);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        try {
+            ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.GET_EMPLOYEE_BY_ID+"/"+empId, HttpMethod.GET, entity, Object.class);
+            AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE DETAILS ", result);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), " EMPLOYEE ID DOES NOT EXIST ", null);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
+
     }
 
 
@@ -41,30 +48,44 @@ public class ClientService implements IClientService {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<EmployeeModel> entity = new HttpEntity<>(employeeModel, headers);
-        ResponseEntity<Object> result=restTemplate.exchange(ClassAPI.NEW_EMPLOYEE, HttpMethod.POST, entity, Object.class);
-        AppResponse response = new AppResponse(HttpStatus.OK.value(), "Employee Added Successfully..", employeeModel);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-
+        try {
+            ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.NEW_EMPLOYEE, HttpMethod.POST, entity, Object.class);
+            AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE ADDED SUCCESSFULLY ", employeeModel);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), " EMPLOYEE ID ALREADY EXIST ", null);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
     }
 
     public ResponseEntity<Object> updateEmployee(EmployeeModel employeeModel) {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<EmployeeModel> entity = new HttpEntity<>(employeeModel, headers);
-        ResponseEntity<Object> result=restTemplate.exchange(ClassAPI.UPDATE_EMPLOYEE, HttpMethod.PUT, entity, Object.class);
-        AppResponse response = new AppResponse(HttpStatus.OK.value(), "Employee Updated Successfully..", employeeModel);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        try {
+            ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.UPDATE_EMPLOYEE, HttpMethod.PUT, entity, Object.class);
+            AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE UPDATED SUCCESSFULLY ", employeeModel);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), " EMPLOYEE ID DOES NOT EXIST ", null);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
 
     }
 
-    public ResponseEntity<Object> deleteById(EmployeeModel employeeModel) {
+    public ResponseEntity<Object> deleteById(Integer empId) {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Object> entity = new HttpEntity<>(headers);
-        ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.DELETE_EMPLOYEE, HttpMethod.DELETE, entity, Object.class);
-        AppResponse response = new AppResponse(HttpStatus.OK.value(), "Employee Deleted..",result);
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        try {
+            ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.DELETE_EMPLOYEE+"/"+empId, HttpMethod.DELETE, entity, Object.class);
+            AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE DELETED SUCCESSFULLY ", result);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), " EMPLOYEE ID DOES NOT EXIST ", null);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
 
     }
 }

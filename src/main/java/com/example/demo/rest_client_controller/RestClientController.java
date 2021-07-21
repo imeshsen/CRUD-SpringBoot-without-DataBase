@@ -1,10 +1,9 @@
 package com.example.demo.rest_client_controller;
 
 import com.example.demo.model.EmployeeModel;
-import com.example.demo.rest_client_Service.ClientService;
 import com.example.demo.rest_client_Service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,9 +20,9 @@ public class RestClientController {
 
     }
 
-    @GetMapping("/get/3")
-    private ResponseEntity<Object> getEmployeeById(EmployeeModel employeeModel) {
-        ResponseEntity<Object> responseEntity = iClientService.getById(employeeModel);
+    @GetMapping("/get/{empId}")
+    private ResponseEntity<Object> getEmployeeById(@PathVariable Integer empId) {
+        ResponseEntity<Object> responseEntity = iClientService.getById(empId);
         return responseEntity;
     }
 
@@ -41,9 +40,9 @@ public class RestClientController {
 
     }
 
-    @DeleteMapping("/delete/2")
-    public ResponseEntity<Object> deleteEmployeeById(EmployeeModel employeeModel) {
-        ResponseEntity<Object> responseEntity = iClientService.deleteById(employeeModel);
+    @DeleteMapping("/delete/{empId}")
+    public ResponseEntity<Object> deleteEmployeeById(@PathVariable Integer empId) {
+        ResponseEntity<Object> responseEntity = iClientService.deleteById(empId);
         return responseEntity;
     }
 }
