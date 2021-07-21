@@ -12,4 +12,9 @@ public class SpringCrudWithoutDbApplication {
         SpringApplication.run(SpringCrudWithoutDbApplication.class, args);
     }
 
+    @Bean
+    public  RestTemplate getRestTemplate(){
+        return new RestTemplate();
+    }
+
 }

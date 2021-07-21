@@ -1,4 +1,4 @@
-package com.example.demo.employee_dao;
+package com.example.demo.employee_repository;
 
 import com.example.demo.employee_model.EmployeeModel;
 

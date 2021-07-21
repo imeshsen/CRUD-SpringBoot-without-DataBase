@@ -28,7 +28,8 @@ public class EmployeeController {
             }
         } catch (Exception e) {
             AppResponse response = new AppResponse(HttpStatus.BAD_REQUEST.value(), "NO DATA FUND ", "THERE IS NO DATA");
-            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+            ResponseEntity<Object> reO=new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+            return reO;
         }
     }
 
@@ -53,7 +54,7 @@ public class EmployeeController {
         try {
             EmployeeModel employeeModel = iEmployeeService.addEmployeeDetails(employee);
             if (employeeModel != null) {
-                AppResponse response = new AppResponse(HttpStatus.OK.value(), "RECORD INSERTED SUCCESSFULLY.. ", employeeModel);
+                AppResponse response = new AppResponse(HttpStatus.OK.value(), HttpStatus.OK.getReasonPhrase(), employeeModel);
                 return new ResponseEntity<>(response, HttpStatus.OK);
             } else {
                 throw new Exception();

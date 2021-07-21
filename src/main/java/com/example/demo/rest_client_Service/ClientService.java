@@ -3,6 +3,7 @@ package com.example.demo.rest_client_Service;
 import com.example.demo.exception_handling.AppResponse;
 import com.example.demo.employee_model.EmployeeModel;
 import com.example.demo.rest_client_controller.ClassAPI;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -12,7 +13,8 @@ import java.util.Arrays;
 @Service
 public class ClientService implements IClientService {
 
-    private RestTemplate restTemplate = new RestTemplate();
+    @Autowired
+    private RestTemplate restTemplate;
 
 
     public ResponseEntity<Object> getAll() {
@@ -30,7 +32,7 @@ public class ClientService implements IClientService {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Object> entity = new HttpEntity<>(headers);
         try {
-            ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.GET_EMPLOYEE_BY_ID+"/"+empId, HttpMethod.GET, entity, Object.class);
+            ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.GET_EMPLOYEE_BY_ID + "/" + empId, HttpMethod.GET, entity, Object.class);
             AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE DETAILS ", result);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
@@ -47,7 +49,7 @@ public class ClientService implements IClientService {
         HttpEntity<EmployeeModel> entity = new HttpEntity<>(employeeModel, headers);
         try {
             ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.NEW_EMPLOYEE, HttpMethod.POST, entity, Object.class);
-            AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE ADDED SUCCESSFULLY ", employeeModel);
+            AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE ADDED SUCCESSFULLY ", result);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), " EMPLOYEE ID ALREADY EXIST ", null);
@@ -61,7 +63,7 @@ public class ClientService implements IClientService {
         HttpEntity<EmployeeModel> entity = new HttpEntity<>(employeeModel, headers);
         try {
             ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.UPDATE_EMPLOYEE, HttpMethod.PUT, entity, Object.class);
-            AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE UPDATED SUCCESSFULLY ", employeeModel);
+            AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE UPDATED SUCCESSFULLY ", result);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), " EMPLOYEE ID DOES NOT EXIST ", null);
@@ -76,7 +78,7 @@ public class ClientService implements IClientService {
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Object> entity = new HttpEntity<>(headers);
         try {
-            ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.DELETE_EMPLOYEE+"/"+empId, HttpMethod.DELETE, entity, Object.class);
+            ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.DELETE_EMPLOYEE + "/" + empId, HttpMethod.DELETE, entity, Object.class);
             AppResponse response = new AppResponse(HttpStatus.OK.value(), " EMPLOYEE DELETED SUCCESSFULLY ", result);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
