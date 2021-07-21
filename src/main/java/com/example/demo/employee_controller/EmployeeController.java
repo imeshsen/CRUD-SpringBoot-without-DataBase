@@ -1,8 +1,8 @@
-package com.example.demo.controller;
+package com.example.demo.employee_controller;
 
 import com.example.demo.exception_handling.AppResponse;
-import com.example.demo.model.EmployeeModel;
-import com.example.demo.service.IEmployeeService;
+import com.example.demo.employee_model.EmployeeModel;
+import com.example.demo.employee_service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

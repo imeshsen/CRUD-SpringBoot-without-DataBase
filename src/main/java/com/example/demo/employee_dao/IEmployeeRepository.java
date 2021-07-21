@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package com.example.demo.employee_dao;
 
-import com.example.demo.model.EmployeeModel;
+import com.example.demo.employee_model.EmployeeModel;
 
 import java.util.List;
 

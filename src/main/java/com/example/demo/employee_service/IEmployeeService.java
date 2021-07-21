@@ -1,6 +1,6 @@
-package com.example.demo.service;
+package com.example.demo.employee_service;
 
-import com.example.demo.model.EmployeeModel;
+import com.example.demo.employee_model.EmployeeModel;
 
 import java.util.List;
 

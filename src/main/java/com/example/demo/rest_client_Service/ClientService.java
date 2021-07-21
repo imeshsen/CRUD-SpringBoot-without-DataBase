@@ -1,16 +1,13 @@
 package com.example.demo.rest_client_Service;
 
 import com.example.demo.exception_handling.AppResponse;
-import com.example.demo.model.EmployeeModel;
-import com.example.demo.repository.IEmployeeRepository;
+import com.example.demo.employee_model.EmployeeModel;
 import com.example.demo.rest_client_controller.ClassAPI;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
-import java.util.List;
 
 @Service
 public class ClientService implements IClientService {

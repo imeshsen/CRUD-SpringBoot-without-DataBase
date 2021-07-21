@@ -1,6 +1,6 @@
 package com.example.demo.rest_client_controller;
 
-import com.example.demo.model.EmployeeModel;
+import com.example.demo.employee_model.EmployeeModel;
 import com.example.demo.rest_client_Service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
