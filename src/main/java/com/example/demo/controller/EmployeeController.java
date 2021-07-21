@@ -59,7 +59,7 @@ public class EmployeeController {
                 throw new Exception();
             }
         } catch (Exception exception) {
-            AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "EMPLOYEE ID EXISTS, PLEASE INSERT DATA IN ANOTHER EMPLOYEE ID", "EMPLOYEE ID = "+employee.getEmpId());
+            AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "EMPLOYEE ID EXISTS, PLEASE INSERT DATA IN ANOTHER EMPLOYEE ID", "EMPLOYEE ID = " + employee.getEmpId());
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
