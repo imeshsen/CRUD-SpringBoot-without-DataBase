@@ -21,10 +21,14 @@ public class ClientService implements IClientService {
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Object> entity = new HttpEntity<>(headers);
-        ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.GET_ALL_EMPLOYEES_API, HttpMethod.GET, entity, Object.class);
-        AppResponse response = new AppResponse(HttpStatus.OK.value(), " TOTAL EMPLOYEES DETAILS ", result);
-        return new ResponseEntity<>(response, HttpStatus.OK);
-
+        try {
+            ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.GET_ALL_EMPLOYEES_API, HttpMethod.GET, entity, Object.class);
+            AppResponse response = new AppResponse(HttpStatus.OK.value(), " TOTAL EMPLOYEES DETAILS ", result);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } catch (Exception e) {
+            AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), " NO DATA FOUND ", null);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }
     }
 
     public ResponseEntity<Object> getById(Integer empId) {

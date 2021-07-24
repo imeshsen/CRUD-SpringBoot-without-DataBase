@@ -1,4 +1,4 @@
-package com.example.demo.employee_repository;
+package com.example.demo.employee_dao;
 
 import com.example.demo.employee_model.EmployeeModel;
 import org.springframework.stereotype.Repository;
@@ -14,7 +14,7 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     {
         EmployeeModel employee1 = new EmployeeModel(1, "Prashant", "9956823659", 50000);
-        EmployeeModel employee2 = new EmployeeModel(2, "Billa", "9000256893", 25000);
+        EmployeeModel employee2 = new EmployeeModel(2, "Bill", "9000256893", 25000);
         EmployeeModel employee3 = new EmployeeModel(3, "Hyderabad", "9254684789", 35000);
         employees.put(employee1.getEmpId(), employee1);
         employees.put(employee2.getEmpId(), employee2);
