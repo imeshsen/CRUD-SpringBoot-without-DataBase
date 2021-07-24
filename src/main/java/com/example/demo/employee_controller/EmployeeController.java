@@ -28,8 +28,8 @@ public class EmployeeController {
             }
         } catch (Exception e) {
             AppResponse response = new AppResponse(HttpStatus.BAD_REQUEST.value(), "NO DATA FUND ", "THERE IS NO DATA");
-            ResponseEntity<Object> reO = new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-            return reO;
+            ResponseEntity<Object> responseEntity = new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+            return responseEntity;
         }
     }
 
