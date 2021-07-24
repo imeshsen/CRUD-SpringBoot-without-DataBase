@@ -81,5 +81,5 @@ __________
 	desktopConnection.connect(configuration, listener, 60);
 ```
 # Adding Image
-![My Image](C:\Users\PICKNHOOK14\Desktop\MyWork\download.png)
+![My Image](https://www.google.com/search?q=Image&sxsrf=ALeKk01kT7IP5yJfjNarUec7eEVI7uU1ug:1627122080902&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjbnI2NvvvxAhVvwjgGHW3IDkUQ_AUoAXoECAEQAw&biw=1600&bih=757#imgrc=xE4uU8uoFN00aM)
   
