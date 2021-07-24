@@ -4,7 +4,7 @@
 
 ## This Application is developed by the SpringBoot
 
-### This project aims to store the Employees Data , it performs operations on data i.e, get, save, update and delete the data
+### This project aims to store the Employees Data , it perform operations on data i.e, get, save, update and delete the data
 
 
 **Heading**
@@ -17,15 +17,16 @@ Heading
 
 ____________
 
-~~100~~
 
-**99**
+~~This is the text~~
+
 
 Links
 
 [Visit Website](https://google.com)
 
-Use 'for' loop
+
+
 '''Java
 
  System.out.println("Welcome Read.md file");
@@ -38,17 +39,15 @@ Tables
 | One | Two | Three |
 
 
-1.Heading
+**A.Heading**
 
-  1.Heading
-
-    2.Heading
-
-      -Heading
-
-
+     .This is so pretty  
+     .This is not the end  
+     .This is reduculous  
+     .This is not beggining  
+  
 2.**Heading 2**
 
-  .Heading
-
-  .Heading1
+    -we are humans
+    -we do lot of mistakes
+  
