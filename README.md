@@ -16,10 +16,10 @@ Heading
 ____________
 
 
-~~This is the text~~
+~~This is marked text~~
 
 
-Links
+go with these Links
 
 [Visit Website](https://google.com "come on open it")
 
