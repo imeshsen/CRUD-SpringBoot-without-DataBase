@@ -81,5 +81,5 @@ __________
 	desktopConnection.connect(configuration, listener, 60);
 ```
 # Adding Image
-![LCO Mascot](https://learncodeonline.png"LCO")
+![my_image](https://learncodeonline.png "open")
   
