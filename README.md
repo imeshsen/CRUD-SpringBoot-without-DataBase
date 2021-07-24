@@ -71,4 +71,14 @@ __________
    	public void onError(Ack ack) {
    	}
    }); adding some java code.
+   
+   
+```Java 
+	this.desktopConnection = new DesktopConnection(appUuid);
+	DesktopStateListener listener = new DesktopStateListener() {...};
+	RuntimeConfiguration configuration = new RuntimeConfiguration();
+	configuration.setRuntimeVersion(desktopVersion);
+	desktopConnection.connect(configuration, listener, 60);
+```
+
   
