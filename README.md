@@ -19,17 +19,10 @@ ____________
 ~~This is marked text~~
 
 
-go with these Links
+>go with these Links
 
 [Visit Website](https://google.com "come on open it")
 
-
-
-'''Java
-
- System.out.println("Welcome Read.md file");
-
-'''
 
 Tables
 |Table|Goes|Here
