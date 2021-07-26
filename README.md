@@ -73,8 +73,8 @@ __________
 	desktopConnection.connect(configuration, listener, 60);
 ```
 # Adding Image
-![download](https://user-images.githubusercontent.com/85600714/126865932-2e06df48-e2a6-42a5-ae04-710718de48a5.png)
-![myImage](https://user-images.githubusercontent.com/85600714/126866032-164a4b1a-0543-40cf-a0f7-182b1d6ea3ef.jpg)
+![download](https://user-images.githubusercontent.com/85600714/126865932-2e06df48-e2a6-42a5-ae04-710718de48a5.png "Download")
+![myImage](https://user-images.githubusercontent.com/85600714/126866032-164a4b1a-0543-40cf-a0f7-182b1d6ea3ef.jpg "Download")
 
 
 
