@@ -2,6 +2,7 @@ package com.example.demo.rest_client_controller;
 
 import com.example.demo.employee_model.EmployeeModel;
 import com.example.demo.rest_client_Service.IClientService;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class RestClientController {
     IClientService iClientService;
 
     @GetMapping("/getAll")
-    public ResponseEntity<Object> getAllEmployees() {
+    public ResponseEntity<Object> getAllEmployees() throws UnirestException {
         ResponseEntity<Object> responseEntity = iClientService.getAll();
         return responseEntity;
 

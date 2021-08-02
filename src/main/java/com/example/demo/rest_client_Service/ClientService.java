@@ -3,12 +3,18 @@ package com.example.demo.rest_client_Service;
 import com.example.demo.exception_handling.AppResponse;
 import com.example.demo.employee_model.EmployeeModel;
 import com.example.demo.rest_client_controller.ClassAPI;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class ClientService implements IClientService {
@@ -17,10 +23,11 @@ public class ClientService implements IClientService {
     private RestTemplate restTemplate;
 
 
-    public ResponseEntity<Object> getAll() {
+    public ResponseEntity<Object> getAll(){
         HttpHeaders headers = new HttpHeaders();
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         HttpEntity<Object> entity = new HttpEntity<>(headers);
+
         try {
             ResponseEntity<Object> result = restTemplate.exchange(ClassAPI.GET_ALL_EMPLOYEES_API, HttpMethod.GET, entity, Object.class);
             AppResponse response = new AppResponse(HttpStatus.OK.value(), " TOTAL EMPLOYEES DETAILS ", result);
@@ -29,6 +36,19 @@ public class ClientService implements IClientService {
             AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), " NO DATA FOUND ", null);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }
+        /*try {
+            HttpResponse<JsonNode> jsonResponse
+                    = Unirest.get(ClassAPI.GET_ALL_EMPLOYEES_API)
+                    .header("accept", "application/json").asJson();
+            System.out.println(jsonResponse.getBody().getObject());
+            AppResponse appResponse = new AppResponse(HttpStatus.OK.value(), "Total", jsonResponse);
+            return new ResponseEntity<>(appResponse, HttpStatus.OK);
+
+        }catch (Exception e){
+            AppResponse response = new AppResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), " NO DATA FOUND ", null);
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        }*/
+
     }
 
     public ResponseEntity<Object> getById(Integer empId) {
