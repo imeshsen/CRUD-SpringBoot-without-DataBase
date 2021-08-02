@@ -52,6 +52,7 @@ __________
 * ok, good bye.
 
 ### **Java code:**
+```java
 
      Application app = new Application(options, desktopConnection, new AckListener() {
    	@Override
@@ -62,6 +63,7 @@ __________
    	@Override
    	public void onError(Ack ack) {
    	}
+```
 
    
    
