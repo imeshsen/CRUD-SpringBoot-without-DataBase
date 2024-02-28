@@ -12,8 +12,6 @@ import java.util.List;
 
 @RestController
 public class EmployeeController {
-//private String name;
-//private int age;
     @Autowired
     IEmployeeService iEmployeeService;
 
